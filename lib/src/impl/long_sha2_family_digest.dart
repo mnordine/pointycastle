@@ -107,7 +107,7 @@ abstract class LongSHA2FamilyDigest extends BaseDigest {
   }
 
   void _processWord(Uint8List inp, int inpOff) {
-    _W[_wOff++].unpack(inp, inpOff, Endian.big);
+    _W[_wOff++].unpack(inp, inpOff, Endianness.BIG_ENDIAN);
 
     if (_wOff == 16) {
       _processBlock();

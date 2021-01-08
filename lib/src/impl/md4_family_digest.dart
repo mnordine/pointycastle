@@ -165,12 +165,12 @@ abstract class MD4FamilyDigest extends BaseDigest {
     }
 
     switch (_endian) {
-      case Endian.little:
+      case Endianness.LITTLE_ENDIAN:
         buffer[14] = bitLength.lo32;
         buffer[15] = bitLength.hi32;
         break;
 
-      case Endian.big:
+      case Endianness.LITTLE_ENDIAN:
         buffer[14] = bitLength.hi32;
         buffer[15] = bitLength.lo32;
         break;
