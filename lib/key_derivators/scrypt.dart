@@ -139,7 +139,7 @@ class Scrypt extends BaseKeyDerivator {
     final x = new Uint32List(16);
 
     for (int i = 0; i < 16; i++) {
-      B32[i] = unpack32(B, i * 4, Endian.little);
+      B32[i] = unpack32(B, i * 4, Endianness.LITTLE_ENDIAN);
     }
 
     _arraycopy(B32, 0, x, 0, 16);
@@ -184,7 +184,7 @@ class Scrypt extends BaseKeyDerivator {
     }
 
     for (int i = 0; i < 16; i++) {
-      pack32(B32[i], B, i * 4, Endian.little);
+      pack32(B32[i], B, i * 4, Endianness.LITTLE_ENDIAN);
     }
   }
 
@@ -196,7 +196,7 @@ class Scrypt extends BaseKeyDerivator {
 
   int _integerify(Uint8List B, int Bi, int r) {
     Bi += (2 * r - 1) * 64;
-    return unpack32(B, Bi, Endian.little);
+    return unpack32(B, Bi, Endianness.LITTLE_ENDIAN);
   }
 
   void _arraycopy(
